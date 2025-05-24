@@ -3,3 +3,7 @@ body {
   font-family: system-ui, sans-serif;
   background: #f9f9f9;
 }
+
+#title {
+  color: blue;
+}
