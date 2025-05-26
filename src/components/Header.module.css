@@ -1,5 +1,5 @@
 .header {
-  background-color: #1e40af; 
+  background-color: #60A5FA; 
   color: white;
   padding: 1rem 2rem;
   display: flex;
@@ -11,6 +11,23 @@
   font-size: 1.5rem;
   font-weight: bold;
   margin: 0;
+  text-decoration: none;
+  color: white;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.titleLink {
+  color: white;
+  text-decoration: none;
+}
+
+.titleLink:hover {
+  color: #d1d5db; 
 }
 
 .navList {
@@ -25,8 +42,10 @@
   color: white;
   text-decoration: none;
   font-weight: 500;
+  transition: color 0.2s ease;
 }
 
 .navItem:hover {
   color: gray;
+  text-decoration: none;
 }
