@@ -28,14 +28,12 @@ const Home = () => {
           setLoading(false);
           return;
         }
-
-        // Sort events by date ascending
+  
         const sortedEvents = data._embedded.events.sort((a: TicketmasterEvent, b: TicketmasterEvent) => {
           return new Date(a.dates.start.localDate).getTime() - new Date(b.dates.start.localDate).getTime();
         });
 
-        // Take only the first 4 upcoming events
-        setEvents(sortedEvents.slice(0, 4));
+        setEvents(sortedEvents.slice(0, 6));
         setLoading(false);
       })
       .catch(err => {
@@ -66,7 +64,7 @@ const Home = () => {
         {events.map(event => {
           const imageUrl = event.images?.[0]?.url || '';
           return (
-            <li key={event.id} className={styles.eventItem}>
+            <li key={event.id} className={styles.eventCard}>
               <Link to={`/events/${event.id}`} className={styles.eventLink}>
                 {imageUrl && <img src={imageUrl} alt={event.name} className={styles.eventImage} />}
                 <div className={styles.eventInfo}>
