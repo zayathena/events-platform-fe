@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import styles from './Events.module.css';
 
 interface TicketmasterEvent {
   id: string;
@@ -40,31 +41,33 @@ export default function Events() {
   if (error) return <p>Error: {error}</p>;
 
   return (
-    <div>
-      <h1>Events in Liverpool</h1>
-      <ul style={{ listStyle: 'none', padding: 0 }}>
-        {events.map(event => {
-          const imageUrl = event.images?.[0]?.url || '';
-          return (
-            <li key={event.id} style={{ marginBottom: '2em', display: 'flex', alignItems: 'center' }}>
-              <Link to={`/events/${event.id}`}>
-                {imageUrl && (
-                  <img
-                    src={imageUrl}
-                    alt={event.name}
-                    style={{ width: '120px', height: '80px', objectFit: 'cover', borderRadius: '4px', marginRight: '1em' }}
-                  />
-                )}
-              </Link>
-              <div>
-                <strong>{event.name}</strong>
-                <br />
-                <small>{new Date(event.dates.start.localDate).toLocaleDateString()}</small>
-              </div>
-            </li>
-          );
-        })}
-      </ul>
-    </div>
-  );
+    <div className={styles.container}>
+    <h1>Events in Liverpool</h1>
+    <ul className={styles.eventList}>
+      {events.map(event => {
+        const imageUrl = event.images?.[0]?.url || '';
+        return (
+          <li key={event.id} className={styles.eventCard}>
+            <Link to={`/events/${event.id}`}>
+              {imageUrl && (
+                <img
+                  src={imageUrl}
+                  alt={event.name}
+                  className={styles.eventImage}
+                />
+              )}
+            </Link>
+            <div className={styles.eventDetails}>
+              <strong className={styles.eventTitle}>{event.name}</strong>
+              <br />
+              <small className={styles.eventDate}>
+                {new Date(event.dates.start.localDate).toLocaleDateString()}
+              </small>
+            </div>
+          </li>
+        );
+      })}
+    </ul>
+  </div>
+);
 }

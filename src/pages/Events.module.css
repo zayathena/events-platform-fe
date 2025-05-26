@@ -1,0 +1,64 @@
+.container {
+  padding: 1rem 2rem;
+}
+
+.eventList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.eventCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 180px; 
+  height: 220px; 
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  background-color: #fff;
+  cursor: pointer;
+  transition: box-shadow 0.2s ease;
+  overflow: hidden;
+}
+
+.eventCard:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.eventImage {
+  width: 160px;  
+  height: 160px;  
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 0.8rem;
+}
+
+.eventDetails {
+  text-align: center;
+  width: 100%;
+  overflow: hidden;
+}
+
+.eventTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  white-space: nowrap;  
+  overflow: hidden;     
+  text-overflow: ellipsis; 
+}
+
+.eventDate {
+  font-size: 0.85rem;
+  color: #555;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

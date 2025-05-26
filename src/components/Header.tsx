@@ -13,6 +13,7 @@ const Header = () => {
           <li><Link to="/events" className={styles.navItem}>Events</Link></li>
           <li><Link to="/create" className={styles.navItem}>Create Event</Link></li>
           <li><Link to="/login" className={styles.navItem}>Login</Link></li>
+          <li><Link to="/register" className={styles.navItem}>Register</Link></li>
         </ul>
       </nav>
     </header>
