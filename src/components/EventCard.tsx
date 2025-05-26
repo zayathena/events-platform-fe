@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import { signupToTicketmasterEvent } from '../api/signup';
 
 interface TicketmasterEvent {
   id: string;
@@ -39,6 +40,9 @@ export default function EventCard() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
+  const [signupMessage, setSignupMessage] = useState<string | null>(null);
+  const [signingUp, setSigningUp] = useState(false);
+
   const API_KEY = 'PUdXTy4cZ7rsJPJMxfUfJG0msbZHG3Lp';
 
   useEffect(() => {
@@ -57,6 +61,21 @@ export default function EventCard() {
         setLoading(false);
       });
   }, [id]);
+
+   const handleSignup = () => {
+    if (!event) return;
+    setSigningUp(true);
+    signupToTicketmasterEvent(event.id)
+      .then(() => {
+        setSignupMessage('Successfully signed up!');
+      })
+      .catch(() => {
+        setSignupMessage('Sign up failed. Please try again.');
+      })
+      .finally(() => {
+        setSigningUp(false);
+      });
+  };
 
   if (loading) return <p>Loading event details...</p>;
   if (error) return <p>Error: {error}</p>;
@@ -89,6 +108,30 @@ export default function EventCard() {
 
       {event.info && <p><strong>Info:</strong> {event.info}</p>}
       
+        <button
+        onClick={handleSignup}
+        disabled={signingUp}
+        style={{
+          display: 'inline-block',
+          marginTop: '1rem',
+          padding: '0.6rem 1.2rem',
+          backgroundColor: '#4285F4',
+          color: 'white',
+          borderRadius: '5px',
+          textDecoration: 'none',
+          fontWeight: 'bold',
+          cursor: 'pointer',
+        }}
+      >
+        {signingUp ? 'Signing up...' : 'Sign Up for This Event'}
+      </button>
+
+      {signupMessage && (
+        <p style={{ marginTop: '0.5rem', color: signupMessage.includes('failed') ? 'red' : 'green' }}>
+          {signupMessage}
+        </p>
+      )}
+
       <a
         href={calendarUrl}
         target="_blank"

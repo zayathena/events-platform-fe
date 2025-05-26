@@ -5,7 +5,7 @@ import EventCard from './components/EventCard';
 import Home from './pages/Home';
 import Events from './pages/Events';
 import CreateEvent from './pages/CreateEvent';
-import Login from './pages/Login';
+import Login from './components/Login';
 
 function App() {
   return (
