@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import styles from './Login.module.css';
 
 export default function Login() {
   const [email, setEmail] = useState('');
@@ -30,7 +31,7 @@ export default function Login() {
   };
 
   return (
-    <form onSubmit={handleLogin} style={{ maxWidth: '400px', margin: '2rem auto' }}>
+    <form onSubmit={handleLogin} className={styles.container}>
       <h2>Login</h2>
 
       <input
@@ -39,7 +40,7 @@ export default function Login() {
         value={email}
         onChange={e => setEmail(e.target.value)}
         required
-        style={{ display: 'block', marginBottom: '1rem', width: '100%' }}
+        className={styles.input}
       />
 
       <input
@@ -48,14 +49,14 @@ export default function Login() {
         value={password}
         onChange={e => setPassword(e.target.value)}
         required
-        style={{ display: 'block', marginBottom: '1rem', width: '100%' }}
+        className={styles.input}
       />
 
-      <button type="submit" style={{ padding: '0.5rem 1rem' }}>
+      <button type="submit" className={styles.button}>
         Login
       </button>
 
-      {error && <p style={{ color: 'red' }}>{error}</p>}
+      {error && <p className={styles.error}>{error}</p>}
     </form>
   );
 }

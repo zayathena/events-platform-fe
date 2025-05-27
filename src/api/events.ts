@@ -33,4 +33,24 @@ export function signupToEvent(eventId: number) {
     });
 }
 
+export function createEvent(eventData: {
+  title: string;
+  description: string;
+  image_url: string;
+  start_time: string;
+  end_time: string;
+}) {
+  return fetch('/api/events', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    credentials: 'include', 
+    body: JSON.stringify(eventData)
+  }).then(res => {
+    if (!res.ok) throw new Error('Failed to create event');
+    return res.json();
+  });
+}
+
 export {};
