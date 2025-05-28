@@ -1,4 +1,4 @@
-const CALENDAR_BASE = 'http://localhost:3000/calendar';
+const CALENDAR_BASE = 'http://localhost:5000/calendar';
 
 export function redirectToGoogleAuth() {
   window.location.href = `${CALENDAR_BASE}/google-auth`;

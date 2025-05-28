@@ -1,4 +1,4 @@
-const API_BASE = 'http://localhost:3000/events';
+const API_BASE = 'http://localhost:5000/events';
 
 export function fetchAllEvents() {
   return fetch(API_BASE)

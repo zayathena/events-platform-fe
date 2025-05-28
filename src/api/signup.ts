@@ -1,5 +1,5 @@
 export function signupToTicketmasterEvent(eventId: string) {
-  return fetch(`http://localhost:3000/events/${eventId}/signup`, {
+  return fetch(`http://localhost:5000/events/${eventId}/signup`, {
     method: 'POST',
     credentials: 'include'
   }).then(res => {

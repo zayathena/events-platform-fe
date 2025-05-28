@@ -1,4 +1,4 @@
-const API_BASE = 'http://localhost:3000';
+const API_BASE = 'http://localhost:5000/api/auth';
 
 export function registerUser(email: string, password: string, role: string) {
   return fetch(`${API_BASE}/register`, {
@@ -6,6 +6,7 @@ export function registerUser(email: string, password: string, role: string) {
     headers: {
       'Content-Type': 'application/json',
     },
+    credentials: 'include', 
     body: JSON.stringify({ email, password, role }),
   })
     .then(res => {
