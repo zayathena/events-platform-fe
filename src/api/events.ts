@@ -1,4 +1,4 @@
-const API_BASE = 'http://localhost:5000/events';
+const API_BASE = 'http://localhost:5000/api/events';
 
 export function fetchAllEvents() {
   return fetch(API_BASE)
@@ -40,7 +40,7 @@ export function createEvent(eventData: {
   start_time: string;
   end_time: string;
 }) {
-  return fetch('/api/events', {
+  return fetch(API_BASE, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'

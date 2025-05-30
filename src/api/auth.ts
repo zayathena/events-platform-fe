@@ -16,3 +16,20 @@ export function registerUser(email: string, password: string, role: string) {
       return res.json();
     });
 }
+
+export function loginUser(email: string, password: string) {
+  return fetch(`${API_BASE}/login`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    credentials: 'include',  
+    body: JSON.stringify({ email, password }),
+  })
+    .then(res => {
+      if (!res.ok) {
+        throw new Error('Login failed');
+      }
+      return res.json();
+    });
+}
