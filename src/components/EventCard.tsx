@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { signupToTicketmasterEvent } from '../api/signup';
+import styles from './EventCard.module.css';
 
 interface TicketmasterEvent {
   id: string;
@@ -85,71 +86,55 @@ export default function EventCard() {
   const calendarUrl = generateGoogleCalendarUrl(event);
 
   return (
-    <div style={{ maxWidth: '600px', margin: 'auto', padding: '1rem' }}>
-      <Link to="/events" style={{ display: 'inline-block', marginBottom: '1rem' }}>
-        ← Back to events
-      </Link>
+  <div className={styles.container}>
+    <Link to="/events" className={styles.backLink}>
+      ← Back to events
+    </Link>
 
-      <h1>{event.name}</h1>
-      {imageUrl && (
-        <img
-          src={imageUrl}
-          alt={event.name}
-          style={{ width: '100%', maxHeight: '400px', objectFit: 'cover', borderRadius: '8px' }}
-        />
-      )}
-      <p><strong>Date:</strong> {new Date(event.dates.start.localDate).toLocaleDateString()}</p>
+    <h1 className={styles.title}>{event.name}</h1>
 
-      {event._embedded?.venues && (
-        <p>
-          <strong>Venue:</strong> {event._embedded.venues[0].name}, {event._embedded.venues[0].city?.name}
-        </p>
-      )}
+    {imageUrl && (
+      <img src={imageUrl} alt={event.name} className={styles.image} />
+    )}
 
-      {event.info && <p><strong>Info:</strong> {event.info}</p>}
-      
-        <button
-        onClick={handleSignup}
-        disabled={signingUp}
-        style={{
-          display: 'inline-block',
-          marginTop: '1rem',
-          padding: '0.6rem 1.2rem',
-          backgroundColor: '#4285F4',
-          color: 'white',
-          borderRadius: '5px',
-          textDecoration: 'none',
-          fontWeight: 'bold',
-          cursor: 'pointer',
-        }}
+    <p><strong>Date:</strong> {new Date(event.dates.start.localDate).toLocaleDateString()}</p>
+
+    {event._embedded?.venues && (
+      <p>
+        <strong>Venue:</strong> {event._embedded.venues[0].name}, {event._embedded.venues[0].city?.name}
+      </p>
+    )}
+
+    {event.info && <p><strong>Info:</strong> {event.info}</p>}
+
+    <button
+      onClick={handleSignup}
+      disabled={signingUp}
+      className={`${styles.button} ${signingUp ? styles.disabledButton : styles.signUpButton}`}
+    >
+      {signingUp ? 'Signing up...' : 'Sign Up for This Event'}
+    </button>
+
+    {signupMessage && (
+      <p
+        className={`${styles.signupMessage} ${
+          signupMessage.toLowerCase().includes('failed')
+            ? styles.signupMessageError
+            : styles.signupMessageSuccess
+        }`}
       >
-        {signingUp ? 'Signing up...' : 'Sign Up for This Event'}
-      </button>
+        {signupMessage}
+      </p>
+    )}
 
-      {signupMessage && (
-        <p style={{ marginTop: '0.5rem', color: signupMessage.includes('failed') ? 'red' : 'green' }}>
-          {signupMessage}
-        </p>
-      )}
-
-      <a
-        href={calendarUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        style={{
-          display: 'inline-block',
-          marginTop: '1rem',
-          padding: '0.6rem 1.2rem',
-          backgroundColor: '#4285F4',
-          color: 'white',
-          borderRadius: '5px',
-          textDecoration: 'none',
-          fontWeight: 'bold',
-          cursor: 'pointer',
-        }}
-      >
-        + Add to Google Calendar
-      </a>
-    </div>
-  );
+    <a
+      href={calendarUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`${styles.button} ${styles.signUpButton}`}
+    >
+      + Add to Google Calendar
+    </a>
+  </div>
+);
 }

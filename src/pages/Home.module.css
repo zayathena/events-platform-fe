@@ -76,7 +76,7 @@
   margin-bottom: 0.3rem;
   white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis;
+  text-overflow: hidden;
 }
 
 .eventDate {

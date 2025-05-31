@@ -1,0 +1,57 @@
+.container {
+  max-width: 600px;
+  margin: auto;
+  padding: 1rem;
+}
+
+.backLink {
+  display: inline-block;
+  margin-bottom: 1rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.image {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.infoText {
+  margin-top: 0.5rem;
+}
+
+.button {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  color: white;
+  text-decoration: none;
+  border: none;
+  user-select: none;
+}
+
+.signUpButton {
+  background-color: #4285F4;
+}
+
+.disabledButton {
+  background-color: #999;
+  cursor: not-allowed;
+}
+
+.signupMessage {
+  margin-top: 0.5rem;
+}
+
+.signupMessageError {
+  color: red;
+}
+
+.signupMessageSuccess {
+  color: green;
+}

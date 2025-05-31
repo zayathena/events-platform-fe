@@ -29,7 +29,7 @@ const CreateEvent = () => {
         setImageUrl('');
         setStartTime('');
         setEndTime('');
-        navigate('/events');
+        navigate('/our-events');
       })
       .catch((err: any) => {
         setMessage(`Failed to create event`);

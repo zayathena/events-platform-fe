@@ -7,6 +7,8 @@ import Events from './pages/Events';
 import CreateEvent from './pages/CreateEvent';
 import Login from './components/Login';
 import Register from './pages/Register';
+import OurEvents from './pages/OurEvents';
+import LvpCard from './components/LvpCard';
 
 function App() {
   return (
@@ -17,7 +19,9 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/events" element={<Events />} />
+            <Route path="/our-events" element={<OurEvents />} />
             <Route path="/events/:id" element={<EventCard />} />
+            <Route path="/our-events/:id" element={<LvpCard />} />
             <Route path="/create" element={<CreateEvent />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
