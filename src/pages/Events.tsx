@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Events.module.css';
+import { fetchCurrentUser } from '../api/auth';
 
 interface TicketmasterEvent {
   id: string;
@@ -14,12 +15,28 @@ interface TicketmasterEvent {
 }
 
 export default function Events() {
+  const [user, setUser] = useState<any>(null);
+  const [loadingUser, setLoadingUser] = useState(true);
   const [events, setEvents] = useState<TicketmasterEvent[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   const API_KEY = 'PUdXTy4cZ7rsJPJMxfUfJG0msbZHG3Lp';
   const API_URL = `https://app.ticketmaster.com/discovery/v2/events.json?apikey=${API_KEY}&city=Liverpool&size=20`;
+
+
+useEffect(() => {
+    fetchCurrentUser()
+      .then(user => {
+        setUser(user);
+      })
+      .catch(() => {
+        setUser(null);
+      })
+      .finally(() => {
+        setLoadingUser(false);
+      });
+  }, []);
 
   useEffect(() => {
     fetch(API_URL)
@@ -42,32 +59,38 @@ export default function Events() {
 
   return (
     <div className={styles.container}>
-    <h1>Events in Liverpool</h1>
-    <ul className={styles.eventList}>
-      {events.map(event => {
-        const imageUrl = event.images?.[0]?.url || '';
-        return (
-          <li key={event.id} className={styles.eventCard}>
-            <Link to={`/events/${event.id}`}>
-              {imageUrl && (
-                <img
-                  src={imageUrl}
-                  alt={event.name}
-                  className={styles.eventImage}
-                />
-              )}
-            </Link>
-            <div className={styles.eventDetails}>
-              <strong className={styles.eventTitle}>{event.name}</strong>
-              <br />
-              <small className={styles.eventDate}>
-                {new Date(event.dates.start.localDate).toLocaleDateString()}
-              </small>
-            </div>
-          </li>
-        );
-      })}
-    </ul>
-  </div>
-);
+      <h1>Events in Liverpool</h1>
+      {user && <p>Welcome back, {user.email}!</p>}
+      <ul className={styles.eventList}>
+        {events.map(event => {
+          const imageUrl = event.images?.[0]?.url || '';
+          return (
+            <li key={event.id} className={styles.eventCard}>
+              <Link to={`/events/${event.id}`}>
+                {imageUrl && (
+                  <img
+                    src={imageUrl}
+                    alt={event.name}
+                    className={styles.eventImage}
+                  />
+                )}
+              </Link>
+              <div className={styles.eventDetails}>
+                <strong className={styles.eventTitle}>{event.name}</strong>
+                <br />
+                <small className={styles.eventDate}>
+                  {new Date(event.dates.start.localDate).toLocaleDateString()}
+                </small>
+                {user && (
+                  <button className={styles.signupButton}>
+                    Sign up for this event
+                  </button>
+                )}
+              </div>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  );
 }

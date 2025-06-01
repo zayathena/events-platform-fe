@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './Login.module.css';
+import { useAuth } from '../context/AuthContext';
 
 export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState<string | null>(null);
   const navigate = useNavigate();
+  const { login } = useAuth();
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
@@ -21,8 +23,9 @@ export default function Login() {
         if (!res.ok) throw new Error('Login failed');
         return res.json();
       })
-      .then(() => {
-        navigate('/events'); 
+      .then(data => {
+        login(data.user);
+        navigate('/'); 
       })
       .catch(err => {
         console.error(err);

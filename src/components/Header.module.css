@@ -49,3 +49,17 @@
   color: gray;
   text-decoration: none;
 }
+
+.logoutButton {
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 0;
+  text-decoration: underline;
+}
+
+.logoutButton:hover {
+  color: #ddd;
+}

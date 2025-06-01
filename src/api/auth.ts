@@ -33,3 +33,14 @@ export function loginUser(email: string, password: string) {
       return res.json();
     });
 }
+
+export function fetchCurrentUser() {
+  return fetch('http://localhost:5000/api/auth/me', {
+    credentials: 'include', 
+  }).then(res => {
+    if (!res.ok) {
+      throw new Error('Not authenticated');
+    }
+    return res.json();
+  });
+}

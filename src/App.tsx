@@ -9,9 +9,11 @@ import Login from './components/Login';
 import Register from './pages/Register';
 import OurEvents from './pages/OurEvents';
 import LvpCard from './components/LvpCard';
+import { AuthProvider } from './context/AuthContext';
 
 function App() {
   return (
+    <AuthProvider>
     <Router>
       <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
         <Header />
@@ -30,6 +32,7 @@ function App() {
         <Footer />
       </div>
     </Router>
+    </AuthProvider>
   );
 }
 
