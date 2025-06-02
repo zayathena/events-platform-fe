@@ -60,7 +60,6 @@ useEffect(() => {
   return (
     <div className={styles.container}>
       <h1>Events in Liverpool</h1>
-      {user && <p>Welcome back, {user.email}!</p>}
       <ul className={styles.eventList}>
         {events.map(event => {
           const imageUrl = event.images?.[0]?.url || '';
@@ -81,11 +80,11 @@ useEffect(() => {
                 <small className={styles.eventDate}>
                   {new Date(event.dates.start.localDate).toLocaleDateString()}
                 </small>
-                {user && (
+                {/* {user && (
                   <button className={styles.signupButton}>
                     Sign up for this event
                   </button>
-                )}
+                )} */}
               </div>
             </li>
           );
