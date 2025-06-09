@@ -1,6 +1,5 @@
 import styles from './Header.module.css';
 import { Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 
 interface User {
@@ -50,7 +49,8 @@ const Header = () => {
             </>
           ) : (
             <>
-              <li className={styles.navItem}>👋 {user.firstName || user.email}</li>
+            <Link to="/my-events">
+              <li className={styles.navItem}>👋 {user.firstName || user.email}</li></Link>
               <li><button onClick={handleLogout} className={styles.logoutButton}>Logout</button></li>
             </>
           )}
