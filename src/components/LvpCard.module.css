@@ -23,21 +23,35 @@
   border-radius: 5px;
   font-weight: bold;
   cursor: pointer;
-  border: none;
   color: white;
-}
-
-.googleCalendarButton {
-  background-color: #4285f4;
   text-decoration: none;
-}
-
-.signUpButton {
-  background-color: #28a745;
-  margin-left: 1rem;
+  background-color: #4285F4;
+  border: none;
+  user-select: none;
 }
 
 .deleteButton {
-  background-color: #d9534f;
-  margin-left: 1rem;
+  background-color: red;
+
+}
+
+.signUpButton {
+  background-color: #4285F4;
+}
+
+.disabledButton {
+  background-color: #999;
+  cursor: not-allowed;
+}
+
+.signupMessage {
+  margin-top: 0.5rem;
+}
+
+.signupMessageError {
+  color: red;
+}
+
+.signupMessageSuccess {
+  color: green;
 }

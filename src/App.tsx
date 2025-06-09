@@ -9,7 +9,6 @@ import Login from './components/Login';
 import Register from './pages/Register';
 import OurEvents from './pages/OurEvents';
 import LvpCard from './components/LvpCard';
-import MyEvents from './components/MyEvents';
 import { AuthProvider } from './context/AuthContext';
 
 function App() {
@@ -28,7 +27,6 @@ function App() {
             <Route path="/create" element={<CreateEvent />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/my-events" element={<MyEvents />} />
           </Routes>
         </main>
         <Footer />

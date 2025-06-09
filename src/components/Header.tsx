@@ -22,8 +22,10 @@ const Header = () => {
   //     .catch(() => setUser(null));
   // }, []);
 
+  const API_BASE = process.env.REACT_APP_API_BASE_URL
+
   const handleLogout = () => {
-    fetch('http://localhost:5000/api/auth/logout', {
+    fetch(`${API_BASE}/api/auth/logout`, {
       method: 'POST',
       credentials: 'include',
     }).then(() => setUser(null));
@@ -49,8 +51,7 @@ const Header = () => {
             </>
           ) : (
             <>
-            <Link to="/my-events">
-              <li className={styles.navItem}>👋 {user.firstName || user.email}</li></Link>
+              <li className={styles.navItem}>👤 {user.firstName || user.email}</li>
               <li><button onClick={handleLogout} className={styles.logoutButton}>Logout</button></li>
             </>
           )}

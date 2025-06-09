@@ -1,4 +1,4 @@
-const TM_BASE = 'http://localhost:5000/api/ticketmaster';
+const TM_BASE = `${process.env.REACT_APP_API_BASE_URL}/api/ticketmaster`;
 
 export function fetchTicketmasterEvents() {
   return fetch(`${TM_BASE}/events`)

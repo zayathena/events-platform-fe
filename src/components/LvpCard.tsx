@@ -34,6 +34,7 @@ export default function OurEventCard() {
   const [isStaff, setIsStaff] = useState(false);
   const [isSignedUp, setIsSignedUp] = useState(false);
   const navigate = useNavigate();
+  
 
   useEffect(() => {
     if (!id) return;
@@ -48,8 +49,10 @@ export default function OurEventCard() {
       });
   }, [id]);
 
+  const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
   useEffect(() => {
-    fetch('http://localhost:5000/api/auth/me', {
+    fetch(`${API_BASE_URL}/api/auth/me`, {
       credentials: 'include',
     })
       .then(res => res.json())
@@ -65,7 +68,7 @@ export default function OurEventCard() {
     const confirmed = window.confirm("Are you sure you want to delete this event?");
     if (!confirmed) return;
 
-    fetch(`http://localhost:5000/api/events/${event.id}`, {
+    fetch(`${API_BASE_URL}/api/events/${event.id}`, {
       method: 'DELETE',
       credentials: 'include',
     })
@@ -84,7 +87,7 @@ export default function OurEventCard() {
   const handleSignUp = () => {
   if (!event) return;
 
-  fetch(`http://localhost:5000/api/events/${event.id}/signup`, {
+  fetch(`${API_BASE_URL}/api/events/${event.id}/signup`, {
     method: 'POST',
     credentials: 'include',
   })
@@ -109,49 +112,54 @@ export default function OurEventCard() {
 
   const calendarUrl = generateGoogleCalendarUrl(event);
 
-  return (
-  <div className={styles.container}>
-    <Link to="/our-events" className={styles.backLink}>
-      ← Back to Our Events
-    </Link>
+return (
+    <div className={styles.container}>
+      <Link to="/our-events" className={styles.backLink}>
+        ← Back to Our Events
+      </Link>
 
-    <h1>{event.title}</h1>
-    {event.image_url && (
-      <img src={event.image_url} alt={event.title} className={styles.image} />
-    )}
-
-    <p><strong>Start:</strong> {new Date(event.start_time).toLocaleString()}</p>
-    <p><strong>End:</strong> {new Date(event.end_time).toLocaleString()}</p>
-    {event.description && <p><strong>Description:</strong> {event.description}</p>}
-
-    <div>
-      <a
-        href={calendarUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={`${styles.button} ${styles.googleCalendarButton}`}
-      >
-        + Add to Google Calendar
-      </a>
-
-      {!isSignedUp && (
-        <button
-          onClick={handleSignUp}
-          className={`${styles.button} ${styles.signUpButton}`}
-        >
-          ✅ Sign Up for Event
-        </button>
+      <h1>{event.title}</h1>
+      {event.image_url && (
+        <img src={event.image_url} alt={event.title} className={styles.image} />
       )}
 
-      {isStaff && (
-        <button
-          onClick={handleDelete}
-          className={`${styles.button} ${styles.deleteButton}`}
-        >
-          🗑️ Delete Event
-        </button>
-      )}
+      <p><strong>Start:</strong> {new Date(event.start_time).toLocaleString()}</p>
+      <p><strong>End:</strong> {new Date(event.end_time).toLocaleString()}</p>
+      {event.description && <p><strong>Description:</strong> {event.description}</p>}
+
+      <div>
+        {!isStaff && (
+          !isSignedUp ? (
+          <button
+            onClick={handleSignUp}
+            className={`${styles.button} ${styles.signUpButton}`}
+          >
+            ✅ Sign Up for Event
+          </button>
+        ) : (
+          <>
+            <a
+              href={calendarUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`${styles.button} ${styles.googleCalendarButton}`}
+            >
+              + Add to Google Calendar
+            </a>
+            <p className={styles.signupSuccess}>You’ve signed up successfully!</p>
+          </>
+        )
+        )}
+
+        {isStaff && (
+          <button
+            onClick={handleDelete}
+            className={`${styles.button} ${styles.deleteButton}`}
+          >
+            🗑️ Delete Event
+          </button>
+        )}
+      </div>
     </div>
-  </div>
-);
+  );
 }

@@ -43,8 +43,9 @@ export default function EventCard() {
 
   const [signupMessage, setSignupMessage] = useState<string | null>(null);
   const [signingUp, setSigningUp] = useState(false);
+  const [signedUp, setSignedUp] = useState(false);
 
-  const API_KEY = 'PUdXTy4cZ7rsJPJMxfUfJG0msbZHG3Lp';
+  const API_KEY = process.env.REACT_APP_TICKETMASTER_API_KEY;
 
   useEffect(() => {
     if (!id) return;
@@ -66,12 +67,16 @@ export default function EventCard() {
    const handleSignup = () => {
     if (!event) return;
     setSigningUp(true);
+    setSignupMessage(null);
+
     signupToTicketmasterEvent(event.id)
       .then(() => {
-        setSignupMessage('Successfully signed up!');
+        alert('Successfully signed up!');
+        setSignedUp(true);
       })
       .catch(() => {
-        setSignupMessage('Sign up failed. Please try again.');
+        alert('Error signing up');
+        setSignedUp(false);
       })
       .finally(() => {
         setSigningUp(false);
@@ -85,56 +90,55 @@ export default function EventCard() {
   const imageUrl = event.images?.[0]?.url || '';
   const calendarUrl = generateGoogleCalendarUrl(event);
 
-  return (
-  <div className={styles.container}>
-    <Link to="/events" className={styles.backLink}>
-      ← Back to events
-    </Link>
+    return (
+    <div className={styles.container}>
+      <Link to="/events" className={styles.backLink}>
+        ← Back to events
+      </Link>
 
-    <h1 className={styles.title}>{event.name}</h1>
+      <h1 className={styles.title}>{event.name}</h1>
 
-    {imageUrl && (
-      <img src={imageUrl} alt={event.name} className={styles.image} />
-    )}
+      {imageUrl && (
+        <img src={imageUrl} alt={event.name} className={styles.image} />
+      )}
 
-    <p><strong>Date:</strong> {new Date(event.dates.start.localDate).toLocaleDateString()}</p>
+      <p><strong>Date:</strong> {new Date(event.dates.start.localDate).toLocaleDateString()}</p>
 
-    {event._embedded?.venues && (
-      <p>
-        <strong>Venue:</strong> {event._embedded.venues[0].name}, {event._embedded.venues[0].city?.name}
-      </p>
-    )}
+      {event._embedded?.venues && (
+        <p>
+          <strong>Venue:</strong> {event._embedded.venues[0].name}, {event._embedded.venues[0].city?.name}
+        </p>
+      )}
 
-    {event.info && <p><strong>Info:</strong> {event.info}</p>}
+      {event.info && <p><strong>Info:</strong> {event.info}</p>}
 
-    <button
-      onClick={handleSignup}
-      disabled={signingUp}
-      className={`${styles.button} ${signingUp ? styles.disabledButton : styles.signUpButton}`}
-    >
-      {signingUp ? 'Signing up...' : 'Sign Up for This Event'}
-    </button>
+      {!signedUp ? (
+        <button
+          onClick={handleSignup}
+          disabled={signingUp}
+          className={`${styles.button} ${signingUp ? styles.disabledButton : styles.signUpButton}`}
+        >
+          {signingUp ? 'Signing up...' : '✅ Sign Up for This Event'}
+        </button>
+      ) : (
+        <>
+          <a
+            href={calendarUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`${styles.button} ${styles.googleCalendarButton}`}
+          >
+            + Add to Google Calendar
+          </a>
+          {signupMessage && (
+            <p className={styles.signupSuccess}>{signupMessage}</p>
+          )}
+        </>
+      )}
 
-    {signupMessage && (
-      <p
-        className={`${styles.signupMessage} ${
-          signupMessage.toLowerCase().includes('failed')
-            ? styles.signupMessageError
-            : styles.signupMessageSuccess
-        }`}
-      >
-        {signupMessage}
-      </p>
-    )}
-
-    <a
-      href={calendarUrl}
-      target="_blank"
-      rel="noopener noreferrer"
-      className={`${styles.button} ${styles.signUpButton}`}
-    >
-      + Add to Google Calendar
-    </a>
-  </div>
-);
+      {!signedUp && signupMessage && (
+        <p className={styles.signupMessageError}>{signupMessage}</p>
+      )}
+    </div>
+  );
 }

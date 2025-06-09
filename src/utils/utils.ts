@@ -18,6 +18,22 @@ interface Event {
   };
 }
 
+export interface TicketmasterEvent {
+  id: string;
+  name: string;
+  info?: string;
+  dates: {
+    start: {
+      localDate: string;
+      localTime?: string;
+    };
+  };
+  images: { url: string }[];
+  _embedded?: {
+    venues?: { name: string; city?: { name: string } }[];
+  };
+}
+
 export function generateGoogleCalendarUrl(event: Event) {
   const startDate = event.dates.start.localDate.replace(/-/g, '');
   const endDate = startDate;

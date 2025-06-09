@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { registerUser } from '../api/auth';
+import styles from './Register.module.css';
 
 const Register = () => {
   const [email, setEmail] = useState('');
@@ -25,72 +26,49 @@ const Register = () => {
   };
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      style={{
-        maxWidth: '400px',
-        margin: '2rem auto',
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '1rem',
-        padding: '1rem',
-        border: '1px solid #ccc',
-        borderRadius: '8px',
-      }}
+  <form onSubmit={handleSubmit} className={styles.container}>
+    <h2>Register</h2>
+
+    <input
+      type="email"
+      placeholder="Email"
+      value={email}
+      onChange={e => setEmail(e.target.value)}
+      required
+      className={styles.input}
+    />
+
+    <input
+      type="password"
+      placeholder="Password"
+      value={password}
+      onChange={e => setPassword(e.target.value)}
+      required
+      className={styles.input}
+    />
+
+    <select
+      value={role}
+      onChange={e => setRole(e.target.value)}
+      className={styles.inputsu}
     >
-      <h2>Register</h2>
-      <input
-        type="email"
-        value={email}
-        onChange={e => setEmail(e.target.value)}
-        placeholder="Email"
-        required
-        style={{ padding: '0.5rem', fontSize: '1rem' }}
-      />
-      <input
-        type="password"
-        value={password}
-        onChange={e => setPassword(e.target.value)}
-        placeholder="Password"
-        required
-        style={{ padding: '0.5rem', fontSize: '1rem' }}
-      />
-      <select
-        value={role}
-        onChange={e => setRole(e.target.value)}
-        style={{ padding: '0.5rem', fontSize: '1rem' }}
+      <option value="user">User</option>
+      <option value="staff">Staff</option>
+    </select>
+
+    <button type="submit" disabled={loading} className={styles.button}>
+      {loading ? 'Registering...' : 'Register'}
+    </button>
+
+    {message && (
+      <p
+        className={message.startsWith('Success') ? styles.success : styles.error}
       >
-        <option value="user">User</option>
-        <option value="staff">Staff</option>
-      </select>
-      <button
-        type="submit"
-        disabled={loading}
-        style={{
-          padding: '0.6rem 1.2rem',
-          backgroundColor: loading ? '#aaa' : '#007bff',
-          color: 'white',
-          border: 'none',
-          borderRadius: '4px',
-          cursor: loading ? 'not-allowed' : 'pointer',
-          fontSize: '1rem',
-        }}
-      >
-        {loading ? 'Registering...' : 'Register'}
-      </button>
-      {message && (
-        <p
-          style={{
-            marginTop: '0.5rem',
-            color: message.startsWith('Success') ? 'green' : 'red',
-            fontWeight: 'bold',
-          }}
-        >
-          {message}
-        </p>
-      )}
-    </form>
-  );
+        {message}
+      </p>
+    )}
+  </form>
+);
 };
 
 export default Register;

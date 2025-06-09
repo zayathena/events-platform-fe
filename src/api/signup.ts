@@ -1,5 +1,7 @@
+const API_BASE = `${process.env.REACT_APP_API_BASE_URL}/api/events`;
+
 export function signupToTicketmasterEvent(eventId: string) {
-  return fetch(`http://localhost:5000/api/events/${eventId}/signup`, {
+  return fetch(`${API_BASE}/${eventId}/signup`, {
     method: 'POST',
     credentials: 'include'
   }).then(res => {

@@ -9,7 +9,7 @@ interface TicketmasterEvent {
   images: { url: string }[];
 }
 
-const API_KEY = 'PUdXTy4cZ7rsJPJMxfUfJG0msbZHG3Lp';
+const API_KEY = process.env.REACT_APP_TICKETMASTER_API_KEY;
 
 const Home = () => {
   const [events, setEvents] = useState<TicketmasterEvent[]>([]);
@@ -49,13 +49,13 @@ const Home = () => {
     <div className={styles.container}>
       <h1 className={styles.title}>Welcome To LVP Events</h1>
       <p className={styles.introduction}>
-        LVP Events is a web application designed to help users explore, create, and manage events in Liverpool with ease.
+        LVP Events is your go-to platform for discovering, creating, and managing events across Liverpool. Whether you're into vibrant cultural festivals, professional networking meetups, or local community gatherings, we've got something for everyone.
       </p>
       <p className={styles.introduction}>
-        Whether you're looking to attend community gatherings, professional meet-ups, or cultural festivals, our platform connects people through shared experiences.
+        Think of it as a mix between Ticketmaster’s big-name events and exclusive local experiences you won’t find anywhere else — all in one easy-to-use platform.
       </p>
       <p className={styles.introduction}>
-        Built with usability and community in mind, LVP Events simplifies the way we connect, celebrate, and come together.
+        Built with community and connection in mind, LVP Events makes it simple to explore what’s happening around you, bring people together, and celebrate the spirit of Liverpool.
       </p>
 
       <h2 className={styles.title}>Upcoming Events</h2>

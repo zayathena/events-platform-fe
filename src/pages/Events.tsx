@@ -21,7 +21,7 @@ export default function Events() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  const API_KEY = 'PUdXTy4cZ7rsJPJMxfUfJG0msbZHG3Lp';
+  const API_KEY = process.env.REACT_APP_TICKETMASTER_API_KEY;
   const API_URL = `https://app.ticketmaster.com/discovery/v2/events.json?apikey=${API_KEY}&city=Liverpool&size=20`;
 
 
