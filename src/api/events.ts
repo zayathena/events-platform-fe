@@ -1,7 +1,7 @@
-const API_BASE = `${process.env.REACT_APP_API_BASE_URL}/api/events`;
+const API_BASE = 'http://localhost:5000/api/events';
 
 export function fetchAllEvents() {
-  return fetch(API_BASE, { credentials: 'include' })
+  return fetch(API_BASE)
     .then(res => {
       if (!res.ok) {
         throw new Error('Failed to load events');
@@ -11,7 +11,7 @@ export function fetchAllEvents() {
 }
 
 export function fetchEventById(id: number) {
-  return fetch(`${API_BASE}/${id}`, { credentials: 'include' })
+  return fetch(`${API_BASE}/${id}`)
     .then(res => {
       if (!res.ok) {
         throw new Error('Event not found');

@@ -21,11 +21,10 @@ const Header = () => {
   //     .then(data => setUser(data))
   //     .catch(() => setUser(null));
   // }, []);
-
-  const API_BASE = process.env.REACT_APP_API_BASE_URL
+  
 
   const handleLogout = () => {
-    fetch(`${API_BASE}/api/auth/logout`, {
+    fetch('http://localhost:5000/api/auth/logout', {
       method: 'POST',
       credentials: 'include',
     }).then(() => setUser(null));

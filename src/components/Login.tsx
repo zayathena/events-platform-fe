@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import styles from './Login.module.css';
 import { useAuth } from '../context/AuthContext';
 
-const API_BASE = process.env.REACT_APP_API_BASE_URL
 
 export default function Login() {
   const [email, setEmail] = useState('');
@@ -15,7 +14,7 @@ export default function Login() {
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
 
-    fetch(`${API_BASE}/api/auth/logout`, {
+    fetch('http://localhost:5000/api/auth/login', {
       method: 'POST',
       credentials: 'include',
       headers: { 'Content-Type': 'application/json' },

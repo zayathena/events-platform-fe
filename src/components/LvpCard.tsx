@@ -52,7 +52,7 @@ export default function OurEventCard() {
   const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
   useEffect(() => {
-    fetch(`${API_BASE_URL}/api/auth/me`, {
+    fetch('http://localhost:5000/api/auth/me', {
       credentials: 'include',
     })
       .then(res => res.json())
@@ -87,7 +87,7 @@ export default function OurEventCard() {
   const handleSignUp = () => {
   if (!event) return;
 
-  fetch(`${API_BASE_URL}/api/events/${event.id}/signup`, {
+  fetch(`http://localhost:5000/api/events/${event.id}/signup`, {
     method: 'POST',
     credentials: 'include',
   })

@@ -1,4 +1,4 @@
-const API_BASE = `${process.env.REACT_APP_API_BASE_URL}/api/auth`;
+const API_BASE = 'http://localhost:5000/api/auth';
 
 export function registerUser(email: string, password: string, role: string) {
   return fetch(`${API_BASE}/register`, {
@@ -35,7 +35,7 @@ export function loginUser(email: string, password: string) {
 }
 
 export function fetchCurrentUser() {
-  return fetch(`${API_BASE}/api/auth/me`, {
+  return fetch('http://localhost:5000/api/auth/me', {
     credentials: 'include', 
   }).then(res => {
     if (!res.ok) {
