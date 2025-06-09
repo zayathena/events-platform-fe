@@ -35,7 +35,7 @@ export function loginUser(email: string, password: string) {
 }
 
 export function fetchCurrentUser() {
-  return fetch('http://localhost:5000/api/auth/me', {
+  return fetch(`${API_BASE}/api/auth/me`, {
     credentials: 'include', 
   }).then(res => {
     if (!res.ok) {
