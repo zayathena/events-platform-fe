@@ -1,4 +1,4 @@
-const CALENDAR_BASE = 'http://localhost:5000/api/calendar';
+const CALENDAR_BASE = `${process.env.REACT_APP_API_BASE}/calendar`;
 
 export function redirectToGoogleAuth() {
   window.location.href = `${CALENDAR_BASE}/google-auth`;

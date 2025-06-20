@@ -1,4 +1,4 @@
-const API_BASE = 'http://localhost:5000/api/events';
+const API_BASE = `${process.env.REACT_APP_API_BASE}/events`;
 
 export function fetchAllEvents() {
   return fetch(API_BASE)
