@@ -1,4 +1,4 @@
-const API_BASE = `${process.env.REACT_APP_API_BASE}/auth`;
+const API_BASE = `${process.env.REACT_APP_API_BASE_URL}/auth`;
 
 export function registerUser(email: string, password: string, role: string) {
   return fetch(`${API_BASE}/register`, {

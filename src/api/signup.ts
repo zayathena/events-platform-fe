@@ -1,5 +1,5 @@
 export function signupToTicketmasterEvent(eventId: string) {
-  return fetch(`${process.env.REACT_APP_API_BASE}/events/${eventId}/signup`, {
+  return fetch(`${process.env.REACT_APP_API_BASE_URL}/events/${eventId}/signup`, {
     method: 'POST',
     credentials: 'include'
   }).then(res => {
