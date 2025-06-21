@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import styles from './Login.module.css';
 import { useAuth } from '../context/AuthContext';
 
-const API_BASE = `${process.env.REACT_APP_API_BASE_URL}/auth/login`;
+const API_BASE = `${process.env.REACT_APP_API_BASE_URL}/auth`;
 
 export default function Login() {
   const [email, setEmail] = useState('');
