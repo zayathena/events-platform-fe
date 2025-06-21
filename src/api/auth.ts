@@ -35,7 +35,7 @@ export function loginUser(email: string, password: string) {
 }
 
 export function fetchCurrentUser() {
-  return fetch(`${API_BASE}/auth/me`, {
+  return fetch(`${API_BASE}/me`, {
     credentials: 'include', 
   }).then(res => {
     if (!res.ok) {
