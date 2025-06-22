@@ -1,7 +1,7 @@
-const API_BASE = `${process.env.REACT_APP_API_BASE_URL}/auth`;
+const API_BASE = `${process.env.REACT_APP_API_BASE_URL}`;
 
 export function registerUser(email: string, password: string, role: string) {
-  return fetch(`${API_BASE}/register`, {
+  return fetch(`${API_BASE}/auth/register`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -18,7 +18,7 @@ export function registerUser(email: string, password: string, role: string) {
 }
 
 export function loginUser(email: string, password: string) {
-  return fetch(`${API_BASE}/login`, {
+  return fetch(`${API_BASE}/auth/login`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -35,7 +35,7 @@ export function loginUser(email: string, password: string) {
 }
 
 export function fetchCurrentUser() {
-  return fetch(`${API_BASE}/me`, {
+  return fetch(`${API_BASE}/auth/me`, {
     credentials: 'include', 
   }).then(res => {
     if (!res.ok) {

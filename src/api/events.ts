@@ -1,7 +1,7 @@
-const API_BASE = `${process.env.REACT_APP_API_BASE_URL}/events`;
+const API_BASE = `${process.env.REACT_APP_API_BASE_URL}`;
 
 export function fetchAllEvents() {
-  return fetch(API_BASE, {
+  return fetch(`${API_BASE}/events`, {
     credentials: 'include'
   })
     .then(res => {
@@ -13,7 +13,7 @@ export function fetchAllEvents() {
 }
 
 export function fetchEventById(id: number) {
-  return fetch(`${API_BASE}/${id}`, {
+  return fetch(`${API_BASE}/events/${id}`, {
     credentials: 'include'
   })
     .then(res => {
@@ -25,7 +25,7 @@ export function fetchEventById(id: number) {
 }
 
 export function signupToEvent(eventId: number) {
-  return fetch(`${API_BASE}/${eventId}/signup`, {
+  return fetch(`${API_BASE}/events/${eventId}/signup`, {
     method: 'POST',
     credentials: 'include'
   })
@@ -44,7 +44,7 @@ export function createEvent(eventData: {
   start_time: string;
   end_time: string;
 }) {
-  return fetch(API_BASE, {
+  return fetch(`${API_BASE}/events`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
