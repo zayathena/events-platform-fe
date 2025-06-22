@@ -20,7 +20,9 @@ export function addToGoogleCalendar(eventData: any) {
 }
 
 export function getGoogleCalendarUrl(eventId: number) {
-  return fetch(`${CALENDAR_BASE}/add-to-calendar/${eventId}`)
+  return fetch(`${CALENDAR_BASE}/add-to-calendar/${eventId}`,{
+    credentials: 'include'
+  })
     .then(res => {
       if (!res.ok) {
         throw new Error('Failed to get calendar URL');

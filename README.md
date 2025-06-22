@@ -31,11 +31,9 @@ Key features:
 
 User
 Email: user@gmail.com    Password: user123
-Email: yelloq@gmail.com  Password: yellow
 
 Staff
 Email: staff@gmail.com   Password: staff123
-Email: yellow@gmail.com  Password: yellow
 
 ## 🌍 Live Demo
 Visit the live deployed version here:
