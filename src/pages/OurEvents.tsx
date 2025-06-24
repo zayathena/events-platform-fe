@@ -18,7 +18,15 @@ export default function OurEvents() {
   useEffect(() => {
     fetchAllEvents()
       .then(data => {
-        setEvents(data);
+         const today = new Date();
+         today.setHours(0, 0, 0, 0);
+
+         const upcomingEvents = data.filter((event: LocalEvent) => {
+          const eventDate = new Date(event.start_time);
+          return eventDate.getTime() >= today.getTime();
+        });
+
+        setEvents(upcomingEvents);
         setLoading(false);
       })
       .catch(err => {
