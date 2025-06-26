@@ -1,12 +1,12 @@
 
 :root {
-  --bg-page:      #121212;   /* nearly black */
-  --bg-container: #1e1e1e;   /* very dark gray */
-  --primary:      #bb86fc;   /* soft magenta */
-  --secondary:    #03dac6;   /* teal accent */
-  --text:         #e0e0e0;   /* light gray */
-  --muted:        #a0a0a0;   /* medium gray */
-  --border:       #2c2c2c;   /* dark border */
+  --bg-page:      #121212;   
+  --bg-container: #1e1e1e;   
+  --primary:      white;   
+  --secondary:    #4e5151;   
+  --text:         #e0e0e0;   
+  --muted:        #a0a0a0;   
+  --border:       #2c2c2c;  
   --shadow:       rgba(0,0,0,0.7);
   --transition:   0.3s ease-in-out;
 }
@@ -80,7 +80,7 @@ body {
 }
 
 .eventCard:hover {
-  border-color: var(--primary);
+  border-color: rgb(59, 56, 56);
   box-shadow: 0 4px 12px var(--shadow);
   transform: translateY(-4px);
 }
@@ -111,7 +111,7 @@ body {
   font-size: 1rem;
   font-weight: 600;
   margin-bottom: 0.3rem;
-  color: var(--text);
+  color: #121212;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -119,7 +119,7 @@ body {
 
 .eventDate {
   font-size: 0.85rem;
-  color: var(--muted);
+  color: #121212;
 }
 
 
