@@ -112,11 +112,14 @@ export default function EventCard() {
 
       {event.info && <p><strong>Info:</strong> {event.info}</p>}
 
+    <div>
       {!signedUp ? (
         <button
           onClick={handleSignup}
           disabled={signingUp}
-          className={`${styles.button} ${signingUp ? styles.disabledButton : styles.signUpButton}`}
+          className={`${styles.button} ${
+            signingUp ? styles.disabledButton : styles.signUpButton
+          }`}
         >
           {signingUp ? 'Signing up...' : '✅ Sign Up for This Event'}
         </button>
@@ -130,11 +133,12 @@ export default function EventCard() {
           >
             + Add to Google Calendar
           </a>
-          {signupMessage && (
-            <p className={styles.signupSuccess}>You’ve signed up successfully!</p>
-          )}
+          <p className={styles.signupSuccess}>
+            You’ve signed up successfully!
+          </p>
         </>
       )}
+    </div>
 
       {!signedUp && signupMessage && (
         <p className={styles.signupMessageError}>{signupMessage}</p>
