@@ -1,12 +1,12 @@
 
 :root {
-  --bg-page:      #121212;   /* nearly black */
-  --bg-container: #1e1e1e;   /* very dark gray */
-  --primary:      #bb86fc;   /* soft magenta */
-  --secondary:    #03dac6;   /* teal accent */
-  --text:         #e0e0e0;   /* light gray */
-  --muted:        #a0a0a0;   /* medium gray */
-  --border:       #2c2c2c;   /* dark border */
+  --bg-page:      #121212;   
+  --bg-container: #ffffff;   
+  --primary:      #4a464f;   
+  --secondary:    #5c6463;   
+  --text:         #e0e0e0;   
+  --muted:        #a0a0a0;   
+  --border:       #2c2c2c;   
   --shadow:       rgba(0,0,0,0.7);
   --transition:   0.3s ease-in-out;
 }
