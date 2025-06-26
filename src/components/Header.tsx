@@ -34,6 +34,7 @@ const Header = () => {
 
   return (
     <header className={styles.header}>
+      <div className={styles.brand}>
       <Link to="/" className={styles.logoLink}>
         <img src={logo} alt="LVP Events Logo" className={styles.logo} />
       </Link>
@@ -41,7 +42,9 @@ const Header = () => {
       <h1 className={styles.title}>
         <Link to="/" className={styles.titleLink}>LVP EVENTS</Link>
       </h1>
-      <nav>
+        </div>
+
+        <nav>
         <ul className={styles.navList}>
           <li><Link to="/" className={styles.navItem}>Home</Link></li>
           <li><Link to="/events" className={styles.navItem}>Events</Link></li>
