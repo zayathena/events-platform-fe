@@ -49,9 +49,11 @@ const Header = () => {
           <li><Link to="/" className={styles.navItem}>Home</Link></li>
           <li><Link to="/events" className={styles.navItem}>Events</Link></li>
           <li><Link to="/our-events" className={styles.navItem}>LVP Events</Link></li>
+          
           {user?.role === 'staff' && (
             <li><Link to="/create" className={styles.navItem}>Create Event</Link></li>
           )}
+
           {!user ? (
             <>
               <li><Link to="/login" className={styles.navItem}>Login</Link></li>
@@ -59,8 +61,13 @@ const Header = () => {
             </>
           ) : (
             <>
-              <li className={styles.navItem}>👤 {user.firstName || user.email}</li>
-              <li><button onClick={handleLogout} className={styles.logoutButton}>Logout</button></li>
+            <li>
+              <span className={styles.navItem}>👤 {user.firstName || user.email}
+                </span>
+              </li>
+              <li>
+                <button onClick={handleLogout} className={styles.logoutButton}>Logout</button>
+                </li>
             </>
           )}
         </ul>
