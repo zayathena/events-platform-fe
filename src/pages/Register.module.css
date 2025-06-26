@@ -2,66 +2,65 @@
   max-width: 400px;
   margin: 2rem auto;
   padding: 2rem;
-  border: 1px solid #ddd;
+  background-color: var(--bg-container); 
+  border: 1px solid var(--border);
   border-radius: 8px;
-  background-color: #fafafa;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  font-family: Arial, sans-serif;
+  box-shadow: 0 2px 8px var(--shadow);
+  font-family: system-ui, sans-serif;
+  color: var(--text);
 }
 
 .heading {
   margin-bottom: 1.5rem;
   font-size: 1.75rem;
   text-align: center;
-  color: #333;
+  color: var(--primary); 
 }
 
-.input {
-  display: block;
-  width: 94%;
-  padding: 0.6rem 0.7rem;
-  margin-bottom: 1rem;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  transition: border-color 0.2s ease;
-}
-
+.input,
 .inputsu {
   width: 100%;
   display: block;
   padding: 0.6rem 0.7rem;
   margin-bottom: 1rem;
   font-size: 1rem;
-  border: 1px solid #ccc;
+  background-color: var(--bg-page); 
+  color: var(--text);
+  border: 1px solid var(--border);
   border-radius: 4px;
+  transition: 
+    border-color var(--transition),
+    background-color var(--transition),
+    color var(--transition);
 }
 
-.input:focus {
-  border-color: #007bff;
+.input:focus,
+.inputsu:focus {
+  border-color: var(--primary);    
   outline: none;
+  background-color: var(--bg-container);
 }
 
 .button {
   width: 100%;
   padding: 0.7rem;
-  background-color: #007bff;
-  border: none;
+  background-color: var(--primary);  
+  color: var(--bg-container);        
+  border: 1px solid var(--primary);
   border-radius: 4px;
-  color: white;
   font-weight: 600;
   font-size: 1.1rem;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: filter var(--transition);
 }
 
 .button:hover {
-  background-color: #0056b3;
+  filter: brightness(0.9);
 }
 
 .error {
-  color: red;
   margin-top: 1rem;
   text-align: center;
+  color: #cf6679; 
   font-weight: 600;
 }

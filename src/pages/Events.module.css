@@ -18,7 +18,8 @@
   align-items: center;
   width: 180px; 
   height: 220px; 
-  padding: 1rem;
+  padding: 0rem;
+  padding-top: 0.2rem;
   border: 1px solid #ddd;
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
@@ -49,6 +50,7 @@
 .eventTitle {
   font-size: 1rem;
   font-weight: 600;
+  color: black;
   margin-bottom: 0.3rem;
   white-space: nowrap;  
   overflow: hidden;     

@@ -1,14 +1,26 @@
 .container {
-  max-width: 600px;
-  margin: auto;
-  padding: 1rem;
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: var(--bg-container);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: 0 2px 6px var(--shadow);
+  color: var(--text);
 }
 
 .backLink {
   display: inline-block;
   margin-bottom: 1rem;
+  color: var(--text);
   text-decoration: none;
-  color: inherit;
+  border: 1px solid var(--border);
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  transition: background var(--transition), color var(--transition);
+}
+.backLink:hover {
+  background-color: var(--border);
 }
 
 .image {
@@ -16,10 +28,14 @@
   max-height: 400px;
   object-fit: cover;
   border-radius: 8px;
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 6px var(--shadow);
 }
 
 .infoText {
   margin-top: 0.5rem;
+  color: var(--text);
+  line-height: 1.5;
 }
 
 .button {
@@ -29,30 +45,33 @@
   border-radius: 5px;
   font-weight: bold;
   cursor: pointer;
-  color: white;
   text-decoration: none;
-  background-color: #4285F4;
+  background-color: var(--text);          
+  color: var(--bg-container);             
   border: none;
-  user-select: none;
+  transition: filter var(--transition);
+}
+.button:hover {
+  filter: brightness(0.9);
 }
 
-.signUpButton {
-  background-color: #4285F4;
-}
 
 .disabledButton {
-  background-color: #999;
+  background-color: var(--muted);
+  color: var(--bg-container);
   cursor: not-allowed;
+  filter: brightness(0.8);
 }
 
 .signupMessage {
   margin-top: 0.5rem;
+  color: var(--text);
 }
 
 .signupMessageError {
-  color: red;
+  color: #ef4444;    
 }
 
 .signupMessageSuccess {
-  color: green;
+  color: #10b981;   
 }

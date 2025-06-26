@@ -2,16 +2,19 @@
   max-width: 600px;
   margin: 2rem auto;
   padding: 2rem;
-  background-color: #ffffff;
+  background-color: var(--bg-container);
+  border: 1px solid var(--border);
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px var(--shadow);
+  color: var(--text);
+  font-family: system-ui, sans-serif;
 }
 
 .heading {
   font-size: 1.8rem;
   font-weight: bold;
   margin-bottom: 1rem;
-  color: #333333;
+  color: var(--primary);
   text-align: center;
 }
 
@@ -23,11 +26,24 @@
 
 .input,
 .textarea {
+  width: 100%;
   padding: 0.75rem;
-  border: 1px solid #ccc;
+  background-color: var(--bg-page);
+  color: var(--text);
+  border: 1px solid var(--border);
   border-radius: 6px;
   font-size: 1rem;
   font-family: inherit;
+  transition: background-color var(--transition),
+              border-color var(--transition),
+              color var(--transition);
+}
+
+.input:focus,
+.textarea:focus {
+  background-color: var(--bg-container);
+  border-color: var(--primary);
+  outline: none;
 }
 
 .textarea {
@@ -37,29 +53,31 @@
 
 .button {
   padding: 0.75rem 1.5rem;
-  background-color: #007bff;
-  color: #ffffff;
-  font-size: 1rem;
-  border: none;
+  background-color: var(--primary);
+  color: var(--bg-container);
+  border: 1px solid var(--primary);
   border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: filter var(--transition);
 }
 
 .button:hover {
-  background-color: #0056b3;
+  filter: brightness(0.9);
 }
 
 .message {
   margin-top: 1rem;
   text-align: center;
   font-weight: 500;
+  color: var(--text);
 }
 
 .success {
-  color: green;
+  color: #03dac6;
 }
 
 .error {
-  color: red;
+  color: #cf6679;
 }
