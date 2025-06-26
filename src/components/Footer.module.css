@@ -1,7 +1,8 @@
 .footer {
-  background-color: #60A5FA; 
-  color: white;
+  background-color: var(--bg-container);   
+  border-top: 1px solid var(--border);     
+  color: var(--text);                      
   padding: 1rem 2rem;
   text-align: center;
-  margin-top: auto;
+  margin-top: auto;                         
 }
