@@ -3,7 +3,7 @@
   --bg-page:      #121212;   
   --bg-container: #1e1e1e;   
   --primary:      white;   
-  --secondary:    #4e5151;   
+  --secondary:    #ffffff;   
   --text:         #e0e0e0;   
   --muted:        #a0a0a0;   
   --border:       #2c2c2c;  
@@ -80,14 +80,14 @@ body {
 }
 
 .eventCard:hover {
-  border-color: rgb(59, 56, 56);
+  border-color: rgb(181, 172, 172);
   box-shadow: 0 4px 12px var(--shadow);
   transform: translateY(-4px);
 }
 
 .eventLink {
   text-decoration: none;
-  color: inherit;
+  color: #121212;
   width: 100%;
   height: 100%;
 }
