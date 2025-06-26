@@ -1,6 +1,7 @@
 import styles from './Header.module.css';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import logo from '../assests/logo.png';
 
 interface User {
   id: number;
@@ -33,8 +34,12 @@ const Header = () => {
 
   return (
     <header className={styles.header}>
+      <Link to="/" className={styles.logoLink}>
+        <img src={logo} alt="LVP Events Logo" className={styles.logo} />
+      </Link>
+
       <h1 className={styles.title}>
-        <Link to="/" className={styles.titleLink}>LVP</Link>
+        <Link to="/" className={styles.titleLink}>LVP EVENTS</Link>
       </h1>
       <nav>
         <ul className={styles.navList}>
