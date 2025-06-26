@@ -63,8 +63,7 @@
 }
 
 .logoutButton {
-  background: none;
-  border: none;     
+  background: none;    
   font: inherit;    
   cursor: pointer;
 }

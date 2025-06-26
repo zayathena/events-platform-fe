@@ -66,7 +66,7 @@ const Header = () => {
                 </span>
               </li>
               <li>
-                <button onClick={handleLogout} className={styles.navItem}>Logout</button>
+                <button onClick={handleLogout} className={`${styles.navItem} ${styles.logoutButton}`}>Logout</button>
                 </li>
             </>
           )}
