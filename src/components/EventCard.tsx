@@ -131,7 +131,7 @@ export default function EventCard() {
             + Add to Google Calendar
           </a>
           {signupMessage && (
-            <p className={styles.signupSuccess}>{signupMessage}</p>
+            <p className={styles.signupSuccess}>You’ve signed up successfully!</p>
           )}
         </>
       )}
