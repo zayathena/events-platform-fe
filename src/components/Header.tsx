@@ -3,13 +3,6 @@ import { Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import logo from '../assests/logo.png';
 
-interface User {
-  id: number;
-  email: string;
-  firstName?: string;
-  role?: string;
-}
-
 const Header = () => {
   const { user, setUser } = useAuth();
 

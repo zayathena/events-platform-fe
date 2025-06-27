@@ -15,8 +15,8 @@ interface TicketmasterEvent {
 }
 
 export default function Events() {
-  const [user, setUser] = useState<any>(null);
-  const [loadingUser, setLoadingUser] = useState(true);
+  const [, setUser] = useState<any>(null);
+  const [, setLoadingUser] = useState(true);
   const [events, setEvents] = useState<TicketmasterEvent[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
