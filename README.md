@@ -1,6 +1,6 @@
 # Launchpad Project - Events Platform Frontend
 
-A responsive frontend platform for discovering and signing up for events in Liverpool. Users can browse and view events from Ticketmaster as well as local community events, register for an account, and sign up for events. Staff users have additional privileges to create and delete events. The app also integrates with Google Calendar for adding signed-up events.
+A responsive frontend platform for discovering and signing up for events in Liverpool. Users can browse and view events from Ticketmaster as well as local community events, register for an account, and sign up for events. Staff users have additional privileges to create and delete events. The app also integrates with Google Calendar for adding signed-up events
 
 ---
 
