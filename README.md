@@ -1,6 +1,6 @@
 # Launchpad Project - Events Platform Frontend
 
-A responsive frontend platform for discovering and signing up for events in Liverpool. Users can browse and view events from Ticketmaster as well as local community events, register for an account, and sign up for events. Staff users have additional privileges to create and delete events. The app also integrates with Google Calendar for adding signed-up events
+A responsive frontend platform for discovering and signing up for events in Liverpool. Users can browse and view events from Ticketmaster as well as local community events, register for an account, and sign up for events. Staff users have additional privileges to create and delete events. The app also integrates with Google Calendar for adding signed-up events.
 
 ---
 
@@ -82,20 +82,20 @@ git clone https://github.com/zayathena/events-platform-fe/
 3. **Set Up Environment Variables**
 
 - Create a .env file at the root of the project with the following keys. Adjust values as needed:
-
+```
 REACT_APP_API_BASE_URL=https://events-platform-be.onrender.com/api
 REACT_APP_TICKETMASTER_API_KEY=your_ticketmaster_api_key
-
+```
 - Ensure that your backend API URL and any required keys are set. Remember that environment variable names must start with REACT_APP_ when using Create React App.
 
 4. **Run the Development Server**
 
-Start the app with:
+- Start the app with:
 npm run start
 
 5. **Build for Production**
 
-To create an optimised production build, run:
+- To create an optimised production build, run:
 npm run build
 
 ## 🔐 Test Accounts
@@ -131,7 +131,7 @@ src/
 
   1. **Connect your Git Repository**
 
-  Log in to Netlify and link your GitHub repository.
+  - Log in to Netlify and link your GitHub repository.
 
   2. **Configure Build Settings:**
 
