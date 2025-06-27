@@ -60,7 +60,7 @@ export default function OurEventCard() {
         setIsStaff(user?.role === 'staff');
       })
       .catch(() => setIsStaff(false));
-  }, []);
+  }, [API_BASE]);
 
   const handleDelete = () => {
     if (!event) return;

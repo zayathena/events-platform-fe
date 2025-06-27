@@ -52,7 +52,7 @@ useEffect(() => {
         setError(err.message);
         setLoading(false);
       });
-  }, []);
+  }, [API_URL]);
 
   if (loading) return <p>Loading Liverpool events...</p>;
   if (error) return <p>Error: {error}</p>;

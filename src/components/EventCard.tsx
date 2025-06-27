@@ -62,7 +62,7 @@ export default function EventCard() {
         setError(err.message);
         setLoading(false);
       });
-  }, [id]);
+  }, [id, API_KEY]);
 
    const handleSignup = () => {
     if (!event) return;
