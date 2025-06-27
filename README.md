@@ -76,17 +76,17 @@ git clone https://github.com/zayathena/events-platform-fe/
 2. **Install Dependencies**
 
 - npm install
-  # or if you prefer yarn:
-  # yarn install
+  or if you prefer yarn:
+  yarn install
 
 3. **Set Up Environment Variables**
 
-Create a .env file at the root of the project with the following keys. Adjust values as needed:
+- Create a .env file at the root of the project with the following keys. Adjust values as needed:
 
 REACT_APP_API_BASE_URL=https://events-platform-be.onrender.com/api
 REACT_APP_TICKETMASTER_API_KEY=your_ticketmaster_api_key
 
-Ensure that your backend API URL and any required keys are set. Remember that environment variable names must start with REACT_APP_ when using Create React App.
+- Ensure that your backend API URL and any required keys are set. Remember that environment variable names must start with REACT_APP_ when using Create React App.
 
 4. **Run the Development Server**
 
@@ -110,7 +110,7 @@ Email: staff@gmail.com
 Password: staff123
 
 ## 📁 Project Structure
-
+```
 public/
   ├── index.html         # HTML template and metadata
   └── favicon.ico        # Site icon
@@ -123,6 +123,7 @@ src/
   ├── utils/             # Utility functions and helper modules
   ├── App.tsx            # Main app component with routing setup
   └── index.tsx          # Application entry point
+  ```
 
   ## 🌍 Deployment
 
@@ -139,13 +140,15 @@ src/
 
   3. **Set Environment Variables**
 
-  Configure required environment variables (such as REACT_APP_API_BASE_URL and REACT_APP_TICKETMASTER_API_KEY) in the Netlify dashboard under Site Settings > Build & Deploy > Environment.
+  - Configure required environment variables (such as REACT_APP_API_BASE_URL and REACT_APP_TICKETMASTER_API_KEY) in the Netlify dashboard under Site Settings > Build & Deploy > Environment.
 
   4. **Continuous Development**
-  Every push to your main branch will trigger an automatic redeployment on Netlify.
-  For more details, refer to Netlify’s Deployment Documentation.
 
-## 📺 Live Demo
-Visit the live deployed version here:
-https://shimmering-phoenix-1ab6c9.netlify.app
+ - Every push to your main branch will trigger an automatic redeployment on Netlify.
+  
+ - For more details, refer to Netlify’s Deployment Documentation.
+  
+  ## 📺 Live Demo
+  Visit the live deployed version here:
+  https://shimmering-phoenix-1ab6c9.netlify.app
 
